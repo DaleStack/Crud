@@ -1,13 +1,15 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     {% tailwind_css %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CRUD</title>
 </head>
-<body>
-    
+<body class="px-4 py-4">
+    {% block content %}
+
+    {% endblock %}
 </body>
 </html>

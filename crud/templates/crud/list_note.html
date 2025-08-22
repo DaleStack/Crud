@@ -1,0 +1,23 @@
+{% extends 'crud/base.html' %}
+
+{% block content %}
+
+<div class="">
+    <div>
+        <a class="btn btn-active" href="{% url 'create_note' %}">+ Create New Note</a>
+    </div>
+
+    <div class="py-4">
+        <ul>
+            {% for note in notes %}
+                <div class="bg-gray-200 inline-block p-4">
+                    <li>{{note.title}}</li>
+                    <li>{{note.content}}</li>
+                    <li>{{note.created_at}}</li>
+                </div>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
