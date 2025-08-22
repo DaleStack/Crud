@@ -13,12 +13,12 @@ def create_note(request):
     else:
         form = NoteModelForm()
 
-    return render(request, "crud/templates/create_note.html", {'form':form})
+    return render(request, "crud/create_note.html", {'form':form})
 
 def list_note(request):
     notes = NoteModel.objects.all()
 
-    return render(request, "crud/templates/list_note.html", {'notes':notes})
+    return render(request, "crud/list_note.html", {'notes':notes})
 
 def update_note(request, pk):
     note = NoteModel.objects.get(id=pk)
@@ -30,7 +30,7 @@ def update_note(request, pk):
     else:
         form = NoteModelForm(instance=note)
     
-    return render(request, "crud/templates/update_note.html", {'form':form})
+    return render(request, "crud/update_note.html", {'form':form})
 
 def delete_note(request, pk):
     note = NoteModel.objects.get(id=pk)
