@@ -9,7 +9,7 @@ def create_note(request):
         form = NoteModelForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('note_list')
+            return redirect('list_note')
     else:
         form = NoteModelForm()
 
@@ -26,17 +26,17 @@ def update_note(request, pk):
         form = NoteModelForm(request.POST, instance=note)
         if form.is_valid():
             form.save()
-            return redirect('note_list')
+            return redirect('list_note')
     else:
         form = NoteModelForm(instance=note)
     
-    return render(request, "crud/update_note.html", {'form':form})
+    return render(request, "crud/update_note.html", {'form':form, 'note':note})
 
 def delete_note(request, pk):
     note = NoteModel.objects.get(id=pk)
     if request.method == "POST":
         note.delete()
-        return redirect('note_list')
+        return redirect('list_note')
 
-    return redirect('note_list')
+    return redirect('list_note')
     
